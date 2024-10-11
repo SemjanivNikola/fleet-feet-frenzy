@@ -24,7 +24,7 @@
                 </nav>
                 <nav class="nav-main-menu">
                     <ul>
-                        <li><a href="#home"><span>Home</span></a></li>
+                        <li class="active"><a href="#home"><span>Home</span></a></li>
                         <li><a href="#events"><span>Events</span></a></li>
                         <li><a href="#tracks"><span>Tracks</span></a></li>
                         <li><a href="#contact"><span>Contact</span></a></li>
@@ -58,23 +58,21 @@
             </div>
         </section>
         <div class="btn-wrapper">
-            <div class="button-container">
+            <button type="button" name="Hover" class="fbutton action">
                 <span>Prijavi se</span>
-                <button type="button" name="Hover">Prijavi se
-                </button>
-            </div>
-            <div class="button-container">
-                <span>Registriraj se</span>
-                <button type="button" name="Hover">Registriraj se
-                </button>
-            </div>
+                <div class="btn-mask">
+                    Prijavi se
+                </div>
+            </button>
         </div>
     </header>
 
     <main>
         <div class="container">
             <section id="run-event" class="section">
-                <h3>Fleet Feet maraton</h3>
+                <div class="section-title-wrapper">
+                    <h3>Fleet Feet maraton</h3>
+                </div>
                 <div class="google-maps">
                     Karta trkačke staze
                 </div>
@@ -120,39 +118,112 @@
                         <div class="card-title">10082km</div>
                     </div>
                 </div>
+                <div class="btn-wrapper">
+                    <button type="button" name="Hover" class="fbutton">
+                        <span>Prijavi se</span>
+                        <div class="btn-mask">
+                            Prijavi se
+                        </div>
+                    </button>
+                    <button type="button" name="Hover" class="fbutton">
+                        <span>Registriraj se</span>
+                        <div class="btn-mask">
+                            Registriraj se
+                        </div>
+                    </button>
+                </div>
             </section>
 
             <section id="events" class="section">
-                <h3>Trčite s nama</h3>
+                <div class="section-title-wrapper">
+                    <h3>Trčite s nama</h3>
+                </div>
                 <div class="event-grid">
                     <div class="e1 egrid-item">
-                        <div class="title">
-                            <h3>Run for Your Bun 10K</h3>
-                            <span class="date-pill">15.12.2024</span>
-                        </div>
-                        <p>A lighthearted 10K race with a cheeky twist, featuring funny costumes and prizes for the most
-                            creative runners!</p>
-                        <div class="btn-wrapper">
-                            <div class="button-container">
-                                <span>Read more</span>
-                                <button type="button" name="Hover">Read more
+                        <div class="egrid-content">
+                            <img class="egrid-item-bg" src="./img/card-bg1.jpg" alt="bgg">
+                            <div>
+                                <div class="title">
+                                    <h3>Run for Your Bun 10K</h3>
+                                    <span class="fdate-pill">15.12.2024</span>
+                                </div>
+                                <p>A lighthearted 10K race with a cheeky twist, featuring funny costumes and prizes for the most
+                                    creative runners!</p>
+                            </div>
+                            <div class="btn-wrapper">
+                                <button type="button" name="Hover" class="fbutton">
+                                    <span>Read more</span>
+                                    <div class="btn-mask">
+                                        Read more
+                                    </div>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div class="e2 egrid-item">2</div>
-                    <div class="e3 egrid-item">3</div>
-                    <div class="e4 egrid-item">4</div>
-                    <div class="e5 egrid-item">5</div>
-                    <div class="e6 egrid-item">6</div>
+                    <div class="e2 egrid-item">
+                        <img class="egrid-img v" src="./img/card-v-img.jpeg" alt="bgg">
+                    </div>
+                    <div class="e3 egrid-item">
+                        <img class="egrid-img" src="./img/card-v-img.jpeg" alt="bgg">
+                    </div>
+                    <div class="e4 egrid-item">
+                        <div class="egrid-content">
+                            <img class="egrid-item-bg v" src="./img/card-bg1.jpg" alt="bgg">
+                            <div>
+                                <div class="title">
+                                    <h3>Run for Your Bun 10K</h3>
+                                    <span class="fdate-pill">15.12.2024</span>
+                                </div>
+                                <p>This half marathon encourages runners to go at their own pace while enjoying the beautiful cityscapes. Whether you're aiming for a personal best or just here for the vibes, this event promises excitement, great energy, and supportive crowds at every turn. With live music at the finish line, it’s an experience you won’t want to miss. This half marathon encourages runners to go at their own pace while enjoying the beautiful cityscapes. Whether you're aiming for a personal best or just here for the vibes, this event promises excitement, great energy, and supportive crowds at every turn. With live music at the finish line, it’s an experience you won’t want to miss.</p>
+                                <p>This half marathon encourages runners to go at their own pace while enjoying the beautiful cityscapes. Whether you're aiming for a personal best or just here for the vibes, this event promises excitement, great energy, and supportive crowds at every turn. With live music at the finish line, it’s an experience you won’t want to miss.</p>
+                            </div>
+                            <div class="btn-wrapper">
+                                <button type="button" name="Hover" class="fbutton">
+                                    <span>Read more</span>
+                                    <div class="btn-mask">
+                                        Read more
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="e5 egrid-item">
+                        <img class="egrid-img v" src="./img/card-v-img.jpeg" alt="bgg">
+                    </div>
+                    <div class="e6 egrid-item">
+                        <div class="egrid-content">
+                            <img class="egrid-item-bg v" src="./img/card-bg1.jpg" alt="bgg">
+                            <div>
+                                <div class="title">
+                                    <h3>Run for Your Bun 10K</h3>
+                                    <span class="fdate-pill">15.12.2024</span>
+                                </div>
+                                <p>This half marathon encourages runners to go at their own pace while enjoying the beautiful cityscapes. Whether you're aiming for a personal best or just here for the vibes, this event promises excitement, great energy, and supportive crowds at every turn. With live music at the finish line, it’s an experience you won’t want to miss. This half marathon encourages runners to go at their own pace while enjoying the beautiful cityscapes. Whether you're aiming for a personal best or just here for the vibes, this event promises excitement, great energy, and supportive crowds at every turn. With live music at the finish line, it’s an experience you won’t want to miss.</p>
+                                <p>This half marathon encourages runners to go at their own pace while enjoying the beautiful cityscapes. Whether you're aiming for a personal best or just here for the vibes, this event promises excitement, great energy, and supportive crowds at every turn. With live music at the finish line, it’s an experience you won’t want to miss.</p>
+                            </div>
+                            <div class="btn-wrapper">
+                                <button type="button" name="Hover" class="fbutton">
+                                    <span>Read more</span>
+                                    <div class="btn-mask">
+                                        Read more
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
 
         <section id="sponsors" class="section">
-            <h3>Sponzori</h3>
+            <div class="section-title-wrapper">
+                <h3>Sponzori</h3>
+            </div>
             <div class="section-wrapper">
                 <div class="img-wrapper">
+                    <img src="./img/Ministarstvo-turizma-i-sporta-RGB-HR.png" alt="Garmin logo">
+                    </div>
+                    <div class="img-wrapper">
                     <img src="./img/Garmin_Logo_Rgsd_PMS-285_original.png" alt="Garmin logo">
                 </div>
                 <div class="img-wrapper">
@@ -165,7 +236,9 @@
         </section>
 
         <section id="follow" class="section">
-            <h3>Pratite nas</h3>
+            <div class="section-title-wrapper">
+                <h3>Pratite nas</h3>
+            </div>
             <div class="card-wrapper">
                 <div class="card">
                     <div class="card-icon">

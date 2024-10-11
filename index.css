@@ -82,7 +82,26 @@ body {
 
 .nav-menu ul li,
 .nav-main-menu ul li {
+    position: relative;
     flex-grow: 1;
+}
+
+.nav-main-menu ul li.active {
+    color: #ef233c;
+    border-bottom-color: #ef233c;
+    pointer-events: none;
+    touch-action: none;
+}
+
+.nav-main-menu ul li.active::before {
+    content: "";
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ef233c;
+    z-index: 10;
 }
 
 .nav-menu ul li a,
@@ -205,6 +224,7 @@ body {
 
 #st2 {
     padding: 1rem 0;
+    /* background: #ef233c; */
     background-color: rgba(217, 4, 41, 0.75);
     color: #edf2f4;
 }
@@ -220,9 +240,9 @@ body {
 /* Header action buttons */
 header.site-header .btn-wrapper {
     position: absolute;
-    bottom: 2rem;
+    bottom: 10%;
     right: 0;
-    width: 65%;
+    width: 55%;
     padding: 2rem 1rem;
     display: flex;
     align-items: center;
@@ -231,7 +251,23 @@ header.site-header .btn-wrapper {
     z-index: 0;
 }
 
-header.site-header .btn-wrapper .button-container {
+button.fbutton.action {
+    border: 1px solid #ef233c;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+button.fbutton.action::after {
+    border: 1px solid #ef233c;
+}
+
+button.fbutton.action .btn-mask {
+    padding: 1.5rem 2.5rem;
+    background: #ef233c;
+}
+
+header.site-header .btn-wrapper .button-container,
+header.site-header .btn-wrapper .fbutton {
     margin: 0;
 }
 
@@ -245,6 +281,18 @@ header.site-header .btn-wrapper .button-container {
     margin-bottom: 1rem;
 }
 
+.section .btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 1rem 0;
+}
+
+.section .btn-wrapper .fbutton {
+    margin: 0;
+}
+
 /* Event grid */
 .event-grid {
     display: grid;
@@ -253,67 +301,111 @@ header.site-header .btn-wrapper .button-container {
     gap: 1rem;
 }
 
-.egrid-item {
-    padding: 1rem;
-    text-align: start;
+.egrid-item-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
 }
 
-.egrid-item .title {
+.egrid-item-bg.v {
+    width: auto;
+    height: 100%;
+}
+
+.egrid-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.egrid-item .egrid-img {
+    width: 100%;
+    height: auto;
+}
+
+.egrid-item .egrid-img.v {
+    width: auto;
+    height: 100%;
+}
+
+.egrid-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    color: #fff;
+    text-align: start;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.egrid-content .title {
     position: relative;
 }
 
-.egrid-item .title h3 {
+.egrid-content .title h3 {
     font-size: 2.125rem;
+    margin-bottom: 2rem;
 }
 
-.egrid-item .title .date-pill {
+.egrid-content .title .fdate-pill {
     position: absolute;
     top: 50%;
     right: 0;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 1px;
     padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: #000;
+    color: #fff;
     transform: translateY(-50%);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-.egrid-item p {
-    line-height: 0.95em;
+.egrid-content p {
+    position: relative;
+    line-height: 1.5em;
     margin-bottom: 0.5rem;
 }
 
-.egrid-item .btn-wrapper {
-    padding: 1rem;
+.egrid-content .btn-wrapper {
+    padding: 7vh 1rem 1rem;
     overflow: hidden;
 }
 
-.button-container {
+.fbutton, .fdate-pill {
     position: relative;
-    width: 100px;
-    height: 50px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 7vh;
-    overflow: hidden;
     border: 1px solid #000;
     font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
     transition: 0.5s;
     letter-spacing: 1px;
-    border-radius: 8px;
 }
 
-.button-container button {
-    width: 101%;
+.fbutton::after, .fdate-pill::after {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
     height: 100%;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 11px;
-    letter-spacing: 1px;
-    font-weight: bold;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #000;
+    transition: all 150ms ease-out;
+    z-index: 0;
+}
+
+.fbutton .btn-mask {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 1.5rem;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
     background: #000;
     -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
     mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png");
@@ -322,28 +414,38 @@ header.site-header .btn-wrapper .button-container {
     border: none;
     color: #fff;
     cursor: pointer;
+    z-index: 15;
 
     -webkit-animation: ani2 0.7s steps(29) forwards;
     animation: ani2 0.7s steps(29) forwards;
 }
 
-.button-container button:hover {
+.fbutton:hover .btn-mask {
     -webkit-animation: ani 0.7s steps(29) forwards;
     animation: ani 0.7s steps(29) forwards;
 }
 
-.button-container span {
+.fbutton:hover::after {
+    top: 0;
+    left: 0;
+}
+
+.fbutton span {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: inherit;
+    background-color: #edf2f4;
     color: #000;
     text-align: center;
-    width: 101%;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    position: absolute;
-    font-size: 11px;
-    margin-top: 17px;
     overflow: hidden;
     font-weight: bold;
+    z-index: 10;
 }
 
 @-webkit-keyframes ani {
@@ -395,6 +497,7 @@ header.site-header .btn-wrapper .button-container {
 }
 
 .e1 {
+    /* background-image: url("./img/card-bg1.jpg"); */
     grid-column: span 2 / span 2;
     background-color: #2a9d8f;
 }
@@ -403,12 +506,14 @@ header.site-header .btn-wrapper .button-container {
     grid-row: span 2 / span 2;
     grid-column-start: 3;
     background-color: #9b9d2a;
+    max-height: 700px;
 }
 
 .e3 {
     grid-column-start: 3;
     grid-row-start: 3;
     background-color: #3f2a9d;
+    max-height: 342px;
 }
 
 .e4 {
@@ -423,6 +528,7 @@ header.site-header .btn-wrapper .button-container {
     grid-row: span 2 / span 2;
     grid-row-start: 4;
     background-color: #0ba124;
+    max-height: 700px;
 }
 
 .e6 {
@@ -433,11 +539,32 @@ header.site-header .btn-wrapper .button-container {
 }
 
 
-
 /* Sections */
 .section {
     padding: 50px 20px;
     text-align: center;
+}
+
+.section-title-wrapper {
+    position: relative;
+}
+
+.section-title-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+}
+
+.section-title-wrapper h3 {
+    width: fit-content;
+    padding: 0 1rem;
+    margin: 0 auto;
+    color: #fff;
+    background-color: #000;
 }
 
 .section h3 {
